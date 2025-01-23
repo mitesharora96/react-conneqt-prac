@@ -1,0 +1,47 @@
+
+//Problem 1
+console.log("----Assignment 1----")
+const arrs = ["Prayagraj", "Ahmedabad", "Rajkot", "Mumbai", "Delhi", "Kanpur","kolkata"];
+ 
+const processData = (arr) => {
+  const reversedArray = arr.reverse();
+  const groups = [];
+ 
+  for (let i = 0, groupSize = 1; i < reversedArray.length; groupSize++) {
+    groups.push(reversedArray.slice(i, i + groupSize));
+    i += groupSize;
+  }
+ 
+  return groups;
+};
+ 
+console.log(processData(arrs));
+
+output-
+----Assignment 1----
+[
+  [ 'kolkata' ],
+  [ 'Kanpur', 'Delhi' ],
+  [ 'Mumbai', 'Rajkot', 'Ahmedabad' ],
+  [ 'Prayagraj' ]
+]
+
+//Problem 2
+console.log("----Assignment 2----")
+var str2="abcgfdhjbbd"
+var ns = new Set(str2)
+console.log([...ns].join(''))
+
+output-
+abcgfdhj
+
+
+// Problem 3
+console.log("----Assignment 3----")
+let arr = [1,2,4,5,6,7, 9]
+console.log("Your Even numbers are " +arr.filter((item)=>item%2===0));
+console.log("Your odd numbers are " +arr.filter((item)=>item%2!==0));
+
+Output-
+Your Even numbers are 2,4,6
+Your odd numbers are 1,5,7,9
