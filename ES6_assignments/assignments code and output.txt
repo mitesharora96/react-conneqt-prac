@@ -45,3 +45,63 @@ console.log("Your odd numbers are " +arr.filter((item)=>item%2!==0));
 Output-
 Your Even numbers are 2,4,6
 Your odd numbers are 1,5,7,9
+
+// Problem 4 and 5
+
+
+ 
+  async function someFunc(): Promise<string> {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve("Hello world");
+      }, 3000);
+    });
+  }
+ 
+  const result = someFunc();
+  console.log(result);
+ 
+ 
+  result.then((value) => console.log(value));
+
+
+  // Type guard to identify if person is Student or User
+// if ('student' in person) {
+//   console.log('This person is a Student');
+// } else {
+//   console.log('This person is a User');
+// }
+// console.log(person);
+ 
+// challenge - 24-01-2025  - how to identify if person is Student or User
+ 
+type Student = {
+    name: string;
+    study: () => void;
+  };
+ 
+  type User = {
+    name: string;
+    login: () => void;
+  };
+ 
+  type Person = Student | User;
+ 
+  const randomPerson = (): Person => {
+    return Math.random() > 0.5
+      ? { name: 'john', study: () => console.log('Studying') }
+      : { name: 'mary', login: () => console.log('Logging in') };
+  };
+  function isStudent(person: Person): person is Student {
+    return "study" in person;
+  }
+ 
+  const person = randomPerson();
+ 
+  if (isStudent(person)) {
+    console.log("Person is a Student");
+    person.study();
+  } else {
+    console.log("Person is a User");
+    person.login();
+  }
