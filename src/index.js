@@ -4,11 +4,16 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.css';
+import cartStore from './Store/Store';
+import { Provider } from "react-redux";
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <Provider store={cartStore}>
+      <App />
+    </Provider>
   </React.StrictMode>
 );
 
